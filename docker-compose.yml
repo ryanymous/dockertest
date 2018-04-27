@@ -1,0 +1,18 @@
+web:
+    image: nginx:latest
+    ports:
+        - "8080:80"
+    volumes:
+        - ./code:/code
+        - ./site.conf:/etc/nginx/conf.d/site.conf
+
+db:
+   image: mysql:latest
+   ports:
+       - "1337:3306"
+   restart: always
+   environment:
+       MYSQL_ROOT_PASSWORD: test123
+       MYSQL_DATABASE: test
+       MYSQL_USER: test
+       MYSQL_PASSWORD: test
